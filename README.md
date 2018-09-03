@@ -1,5 +1,13 @@
 # Discord.hs
 
+```
+An attempt to learn some more and help others out, commit by commit.
+
+I am going to be attempting to update this library as much as I can while still heavily learning Haskell.
+I'll attempt to follow the previous library's code style and maybe even some day I can look back and rewrite it if need be.
+
+- PixeL
+```
 ## REWORK TIME!!!
 
 A majority of d.hs was hastily thrown together, and was honestly intended as a proof of
