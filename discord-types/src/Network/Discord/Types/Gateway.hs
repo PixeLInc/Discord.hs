@@ -25,7 +25,10 @@ module Network.Discord.Types.Gateway where
       (Int, Int)
     | StatusUpdate
       (Maybe Integer)
+      (Maybe Integer)
       (Maybe String)
+      String
+      Bool
     | VoiceStatusUpdate
       {-# UNPACK #-} !Snowflake
       !(Maybe Snowflake)
@@ -77,13 +80,16 @@ module Network.Discord.Types.Gateway where
         , "shard" .= shard
         ]
       ]
-    toJSON (StatusUpdate idle game) = object [
+    toJSON (StatusUpdate idle t game status afk) = object [
         "op" .= (3 :: Int)
       , "d"  .= object [
-          "idle_since" .= idle
+          "since" .= idle
         , "game"       .= object [
             "name" .= game
+          , "type" .= t
           ]
+        , "status" .= status
+        , "afk"    .= afk
         ]
       ]
     toJSON (VoiceStatusUpdate guild channel mute deaf) = object [
